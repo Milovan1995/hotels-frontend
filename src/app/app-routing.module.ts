@@ -7,7 +7,7 @@ import { ContactUsComponent } from './components/pages/contact-us/contact-us.com
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'hotels', component: HotelsComponent },
-  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'contact', component: ContactUsComponent },
 ];
 
 @NgModule({

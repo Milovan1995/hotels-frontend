@@ -1,1 +1,26 @@
-<p>home works!</p>
+<h1>{{ title }}</h1>
+<!-- Prva strukturna direktiva ngFor -->
+<ul>
+  <ng-container *ngFor="let concept of angularConcepts; let i = index">
+    <li *ngIf="i % 2 == 0">{{concept}}</li>
+  </ng-container>
+ 
+</ul>
+
+<h3>{{description}}</h3>
+<ol>
+  <li *ngFor="let polaznik of polaznici">
+    {{polaznik}}
+  </li>
+</ol>
+<!--Druga strukturna direktiva ngIf** -->
+<div *ngIf="angularConcepts.length > 0">
+  <p>This is ngIf demo</p>
+</div>
+
+<!-- Treca strukturna direktiva -->
+<div [ngSwitch]="angularConcepts.length">
+  <p *ngSwitchCase="0">There are no angular concepts</p>
+  <p *ngSwitchCase="1">There is one angular concept</p>
+  <p *ngSwitchDefault="">There are many angular concepts</p>
+</div>
