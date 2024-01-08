@@ -6,8 +6,7 @@ import { AppComponent } from './components/app/app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { HotelsComponent } from './components/pages/hotels/hotels.component';
 import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
-import { HeaderComponent } from './components/helpers/header/header.component';
-import { FooterComponent } from './components/helpers/footer/footer.component';
+import { HelpersModule } from './components/helpers/helpers.module';
 
 @NgModule({
   declarations: [
@@ -15,10 +14,8 @@ import { FooterComponent } from './components/helpers/footer/footer.component';
     HomeComponent,
     HotelsComponent,
     ContactUsComponent,
-    HeaderComponent,
-    FooterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HelpersModule],
   providers: [],
   bootstrap: [AppComponent],
 })
