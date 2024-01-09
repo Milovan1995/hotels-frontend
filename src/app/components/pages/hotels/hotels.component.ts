@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Hotel } from '../../../models/Hotel';
+import { HotelService } from '../../../services/hotel.service';
 
 @Component({
   selector: 'app-hotels',
   templateUrl: './hotels.component.html',
-  styleUrl: './hotels.component.scss'
+  styleUrl: './hotels.component.scss',
 })
-export class HotelsComponent {
-
+export class HotelsComponent implements OnInit {
+  hotels: Hotel[] = [];
+  constructor(private hotelService: HotelService) {}
+  ngOnInit(): void {
+    this.hotels = this.hotelService.getAllHotels();
+  }
 }
