@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/colors";
+@import "./assets/scss/borders";
+p {
+  color: $color-primary;
+  border: $border-dashed;
+  border-color: $color-ternary;
+}
