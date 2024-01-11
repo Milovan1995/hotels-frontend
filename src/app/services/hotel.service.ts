@@ -1,22 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Hotel } from '../models/Hotel';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HotelService {
-  constructor() {}
-  getAllHotels(): Hotel[] {
-    return [
-      {
-        id: 2,
-        name: 'Hotel B',
-        description: 'Crazy good Hotel',
-        yearOfStart: 2020,
-        noOfStars: 5,
-        updated: new Date(),
-        created: new Date(),
-      },
-    ];
+  constructor(private http: HttpClient) {}
+  getAllHotels() {
+    return this.http.get<Hotel[]>('http://localhost:3000/hotel');
   }
 }
