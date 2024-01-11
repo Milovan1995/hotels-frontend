@@ -10,4 +10,7 @@ export class HotelService {
   getAllHotels() {
     return this.http.get<Hotel[]>('http://localhost:3000/hotel');
   }
+  getHotelById(id: number) {
+    return this.http.get<Hotel>(`http://localhost:3000/hotel/${id}`);
+  }
 }
