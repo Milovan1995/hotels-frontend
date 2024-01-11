@@ -3,7 +3,7 @@ export class Hotel {
   name: string;
   description: string;
   yearOfStart: number;
-  noOfStars: number;
+  no_of_stars: number;
   updated: Date;
   created: Date;
 }
