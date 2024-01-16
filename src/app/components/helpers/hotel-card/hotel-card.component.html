@@ -16,6 +16,20 @@
         >
           View details
         </button>
+        <button
+          routerLink="/admin/edit-hotel/{{ hotel.id }}"
+          type="button"
+          class="btn btn-sm btn-outline-secondary"
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          (click)="deleteHotel()"
+          class="btn btn-sm btn-outline-secondary"
+        >
+          Delete
+        </button>
       </div>
     </div>
   </div>

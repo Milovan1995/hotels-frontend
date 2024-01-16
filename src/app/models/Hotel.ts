@@ -4,6 +4,6 @@ export class Hotel {
   description: string;
   year_of_start: number;
   no_of_stars: number;
-  updated: Date;
+  updated_date: Date;
   created: Date;
 }
