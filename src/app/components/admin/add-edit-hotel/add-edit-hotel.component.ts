@@ -17,6 +17,7 @@ export class AddEditHotelComponent implements OnInit {
 
   hotel: Hotel = new Hotel();
   edit: boolean = false;
+  file: any;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((paramData) => {
@@ -39,5 +40,9 @@ export class AddEditHotelComponent implements OnInit {
         this.router.navigateByUrl('/hotels');
       });
     }
+  }
+  setUploadedFile(e: any) {
+    this.file = e.target.files[0];
+    console.log(this.file);
   }
 }
