@@ -22,4 +22,7 @@ export class HotelService {
   deleteHotel(id: number) {
     return this.http.delete(`http://localhost:3000/hotel/${id}`);
   }
+  addImage(formData: FormData) {
+    return this.http.post('http://localhost:3000/upload', formData);
+  }
 }

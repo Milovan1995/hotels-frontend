@@ -36,8 +36,17 @@ export class AddEditHotelComponent implements OnInit {
         this.router.navigateByUrl('/hotels');
       });
     } else {
-      this.hotelService.insertHotel(this.hotel).subscribe((data) => {
-        this.router.navigateByUrl('/hotels');
+      let formData: FormData = new FormData();
+      formData.append('img', this.file);
+      this.hotelService.addImage(formData).subscribe({
+        next: (fileUploadResponse: any) => {
+          this.hotel.image_path = fileUploadResponse.filename;
+        },
+        complete: () => {
+          this.hotelService.insertHotel(this.hotel).subscribe((data) => {
+            this.router.navigateByUrl('/hotels');
+          });
+        },
       });
     }
   }
