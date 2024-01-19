@@ -43,4 +43,8 @@
     <input type="file" (change)="setUploadedFile($event)" />
   </div>
   <button class="btn btn-primary" (click)="saveHotel()">Save</button>
+  <div class="row" *ngIf="edit">
+    <label>Current photograph:</label>
+    <img src="{{ apiUrl }}/{{ hotel.image_path }}" />
+  </div>
 </div>

@@ -2,6 +2,7 @@ import { Component, Host, Input } from '@angular/core';
 import { Hotel } from '../../../models/Hotel';
 import { HotelService } from '../../../services/hotel.service';
 import { HotelsComponent } from '../../pages/hotels/hotels.component';
+import { environment } from '../../../../environments/environment.development';
 
 @Component({
   selector: 'app-hotel-card',
@@ -10,6 +11,8 @@ import { HotelsComponent } from '../../pages/hotels/hotels.component';
 })
 export class HotelCardComponent {
   @Input() hotel: Hotel;
+
+  apiUrl = environment.API_URL;
 
   constructor(
     private hotelService: HotelService,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HotelService } from '../../../services/hotel.service';
 import { Hotel } from '../../../models/Hotel';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../../environments/environment.development';
 
 @Component({
   selector: 'app-add-edit-hotel',
@@ -17,7 +18,8 @@ export class AddEditHotelComponent implements OnInit {
 
   hotel: Hotel = new Hotel();
   edit: boolean = false;
-  file: any;
+  file: any = null;
+  apiUrl = environment.API_URL;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((paramData) => {
@@ -32,9 +34,24 @@ export class AddEditHotelComponent implements OnInit {
 
   saveHotel() {
     if (this.edit) {
-      this.hotelService.updateHotel(this.hotel).subscribe((data) => {
-        this.router.navigateByUrl('/hotels');
-      });
+      if (this.file) {
+        let formData: FormData = new FormData();
+        formData.append('img', this.file);
+        this.hotelService.addImage(formData).subscribe({
+          next: (fileUploadResponse: any) => {
+            this.hotel.image_path = fileUploadResponse.filename;
+          },
+          complete: () => {
+            this.hotelService.updateHotel(this.hotel).subscribe((data) => {
+              this.router.navigateByUrl('/hotels');
+            });
+          },
+        });
+      } else {
+        this.hotelService.updateHotel(this.hotel).subscribe((data) => {
+          this.router.navigateByUrl('/hotels');
+        });
+      }
     } else {
       let formData: FormData = new FormData();
       formData.append('img', this.file);
