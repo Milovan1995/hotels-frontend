@@ -6,4 +6,5 @@ export class Hotel {
   year_of_start: number;
   updated: Date;
   created: Date;
+  image_path: string;
 }
