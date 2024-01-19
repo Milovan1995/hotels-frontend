@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './view-hotel.component.scss',
 })
 export class ViewHotelComponent implements OnInit {
-  hotel: Hotel;
+  hotel: Hotel = new Hotel();
 
   constructor(
     private hotelService: HotelService,
@@ -19,6 +19,7 @@ export class ViewHotelComponent implements OnInit {
     this.activatedRoute.params.subscribe((paramsData) => {
       let hotelID: number = paramsData[`id`];
       this.hotelService.getHotelById(hotelID).subscribe((data) => {
+        console.log(data);
         this.hotel = data;
         this.hotelService
           .getHotelById(hotelID)

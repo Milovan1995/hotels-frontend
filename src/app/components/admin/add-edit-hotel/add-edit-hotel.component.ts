@@ -19,14 +19,14 @@ export class AddEditHotelComponent implements OnInit {
   edit: boolean = false;
 
   ngOnInit(): void {
-    if (this.router.url === '/admin/edit-hotel') {
-      this.activatedRoute.params.subscribe((paramData) => {
+    this.activatedRoute.params.subscribe((paramData) => {
+      if (paramData['id']) {
         this.edit = true;
         this.hotelService
           .getHotelById(paramData['id'])
           .subscribe((data) => (this.hotel = data));
-      });
-    }
+      }
+    });
   }
 
   saveHotel() {
