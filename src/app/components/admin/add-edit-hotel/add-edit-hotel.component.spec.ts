@@ -8,10 +8,9 @@ describe('AddEditHotelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AddEditHotelComponent]
-    })
-    .compileComponents();
-    
+      declarations: [AddEditHotelComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(AddEditHotelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

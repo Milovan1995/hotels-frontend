@@ -2,15 +2,14 @@
 <!-- Prva strukturna direktiva ngFor -->
 <ul>
   <ng-container *ngFor="let concept of angularConcepts; let i = index">
-    <li *ngIf="i % 2 == 0">{{concept}}</li>
+    <li *ngIf="i % 2 == 0">{{ concept }}</li>
   </ng-container>
- 
 </ul>
 
-<h3>{{description}}</h3>
+<h3>{{ description }}</h3>
 <ol>
   <li *ngFor="let polaznik of polaznici">
-    {{polaznik}}
+    {{ polaznik }}
   </li>
 </ol>
 <!--Druga strukturna direktiva ngIf** -->

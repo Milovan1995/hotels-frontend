@@ -13,7 +13,7 @@ export class AddEditHotelComponent implements OnInit {
   constructor(
     private hotelService: HotelService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {}
 
   hotel: Hotel = new Hotel();

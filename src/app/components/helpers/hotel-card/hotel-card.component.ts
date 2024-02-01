@@ -7,7 +7,7 @@ import { environment } from '../../../../environments/environment.development';
 @Component({
   selector: 'app-hotel-card',
   templateUrl: './hotel-card.component.html',
-  styleUrl: './hotel-card.component.scss',
+  styleUrl: './hotel-card.component.scss'
 })
 export class HotelCardComponent {
   @Input() hotel: Hotel;

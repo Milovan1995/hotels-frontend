@@ -9,9 +9,8 @@ describe('HotelCardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HotelCardComponent]
-    })
-    .compileComponents();
-    
+    }).compileComponents();
+
     fixture = TestBed.createComponent(HotelCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,31 +1,26 @@
 <div class="card shadow-sm">
   <img src="{{ apiUrl }}/{{ hotel.image_path }}" />
   <div class="card-body">
-    <p class="card-text">
-      {{ hotel.name }}
-    </p>
+    <p class="card-text">{{ hotel.name }}</p>
     <small>{{ hotel.description }}</small>
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
         <button
           routerLink="/view-hotel/{{ hotel.id }}"
           type="button"
-          class="btn btn-sm btn-outline-secondary"
-        >
+          class="btn btn-sm btn-outline-secondary">
           View details
         </button>
         <button
           routerLink="/admin/edit-hotel/{{ hotel.id }}"
           type="button"
-          class="btn btn-sm btn-outline-secondary"
-        >
+          class="btn btn-sm btn-outline-secondary">
           Edit
         </button>
         <button
           type="button"
           (click)="deleteHotel()"
-          class="btn btn-sm btn-outline-secondary"
-        >
+          class="btn btn-sm btn-outline-secondary">
           Delete
         </button>
       </div>

@@ -15,7 +15,7 @@ export class ViewHotelComponent implements OnInit {
 
   constructor(
     private hotelService: HotelService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {}
   ngOnInit() {
     this.activatedRoute.params.subscribe((paramsData) => {
