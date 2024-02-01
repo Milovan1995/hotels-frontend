@@ -1,1 +1,35 @@
-<p>register works!</p>
+<div class="container">
+  <div class="form-group">
+    <label for="register">Username</label>
+    <input
+      type="text"
+      [(ngModel)]="user.username"
+      name="register"
+      id="register"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      [(ngModel)]="user.password"
+      name="password"
+      id="password"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="confirm-pass">Confirm Password</label>
+    <input
+      [(ngModel)]="user.confirmPassword"
+      type="password"
+      name="confirm-pass"
+      id="confirm-pass"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="register()">Register</button>
+  </div>
+</div>
