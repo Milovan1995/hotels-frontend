@@ -1,7 +1,6 @@
-import { Component, Host, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Hotel } from '../../../models/Hotel';
 import { HotelService } from '../../../services/hotel.service';
-import { HotelsComponent } from '../../pages/hotels/hotels.component';
 import { environment } from '../../../../environments/environment.development';
 
 @Component({
@@ -11,20 +10,12 @@ import { environment } from '../../../../environments/environment.development';
 })
 export class HotelCardComponent {
   @Input() hotel: Hotel;
-
+  @Output() deleteClicked: EventEmitter<Hotel> = new EventEmitter();
   apiUrl = environment.API_URL;
 
-  constructor(
-    private hotelService: HotelService,
-    @Host() private hotelsComponent: HotelsComponent
-  ) {}
+  constructor(private hotelService: HotelService) {}
 
-  deleteHotel() {
-    if (confirm('Are you sure?')) {
-      this.hotelService.deleteHotel(this.hotel.id).subscribe((data) => {
-        console.log(data);
-        this.hotelsComponent.ngOnInit();
-      });
-    }
+  onClickDelete() {
+    this.deleteClicked.emit(this.hotel);
   }
 }

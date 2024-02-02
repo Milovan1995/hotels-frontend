@@ -7,8 +7,18 @@ import { HotelCardComponent } from './hotel-card/hotel-card.component';
 import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, HotelCardComponent, ModalComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    HotelCardComponent,
+    ModalComponent,
+  ],
   imports: [CommonModule, RouterModule],
-  exports: [HeaderComponent, FooterComponent, HotelCardComponent],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    HotelCardComponent,
+    ModalComponent,
+  ],
 })
 export class HelpersModule {}

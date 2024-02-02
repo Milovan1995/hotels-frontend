@@ -8,6 +8,8 @@ import { HotelService } from '../../../services/hotel.service';
   styleUrl: './hotels.component.scss',
 })
 export class HotelsComponent implements OnInit {
+  modalVisible: boolean = false;
+  hotelForDeletion: Hotel;
   loading = false;
   hotels: Hotel[] = [];
   constructor(private hotelService: HotelService) {}
@@ -25,6 +27,25 @@ export class HotelsComponent implements OnInit {
           this.loading = false;
         }
       }, 200);
+    }
+  }
+
+  onDeleteClicked(hotel: Hotel) {
+    this.hotelForDeletion = hotel;
+    this.modalVisible = true;
+  }
+  onModalResponse(response: boolean) {
+    if (response) {
+      this.hotelService
+        .deleteHotel(this.hotelForDeletion.id)
+        .subscribe((data) => {
+          this.hotelForDeletion = undefined;
+          this.modalVisible = false;
+          this.ngOnInit();
+        });
+    } else {
+      this.modalVisible = false;
+      this.hotelForDeletion = undefined;
     }
   }
 }
