@@ -12,12 +12,14 @@
           View details
         </button>
         <button
+          *ngIf="userIsAdmin"
           routerLink="/admin/edit-hotel/{{ hotel.id }}"
           type="button"
           class="btn btn-sm btn-outline-secondary">
           Edit
         </button>
         <button
+          *ngIf="userIsAdmin"
           type="button"
           (click)="onClickDelete()"
           class="btn btn-sm btn-outline-secondary">
