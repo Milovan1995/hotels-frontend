@@ -8,8 +8,4 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ModalComponent {
   @Input() hotel: string;
   @Output() onConfirmModal: EventEmitter<boolean> = new EventEmitter();
-
-  onConfirm(response: boolean) {
-    this.onConfirmModal.emit(response);
-  }
 }
