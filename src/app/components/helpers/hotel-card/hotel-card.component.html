@@ -21,7 +21,7 @@
         <button
           *ngIf="userIsAdmin"
           type="button"
-          (click)="onClickDelete()"
+          (click)="deleteClicked.emit(hotel)"
           class="btn btn-sm btn-outline-secondary">
           Delete
         </button>

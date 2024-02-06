@@ -14,13 +14,7 @@ export class HotelCardComponent {
   @Output() deleteClicked: EventEmitter<Hotel> = new EventEmitter();
   apiUrl = environment.API_URL;
 
-  constructor(
-    private hotelService: HotelService,
-    private authService: AuthService
-  ) {}
+  constructor(private authService: AuthService) {}
 
   userIsAdmin: boolean = this.authService.getUserData().isAdmin;
-  onClickDelete() {
-    this.deleteClicked.emit(this.hotel);
-  }
 }
